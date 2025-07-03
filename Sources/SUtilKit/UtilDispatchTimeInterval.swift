@@ -12,7 +12,7 @@ public extension DispatchTimeInterval {
     /// Convert to Double
     /// - Returns: Converted value
     func toDouble() -> Double? {
-        switch self {∂
+        switch self {
         case .seconds(let value):
             return Double(value)
         case .milliseconds(let value):
