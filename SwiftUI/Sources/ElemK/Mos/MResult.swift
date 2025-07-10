@@ -6,11 +6,11 @@
 //
 
 public struct MResultIST<T> {
-    let code: Int
+    let code: Int?
     let msg: String?
-    let bean: T
+    let t: T
 
-    public init(code: Int, msg: String?, t: T) {
+    public init(code: Int?, msg: String?, t: T) {
         self.code = code
         self.msg = msg
         self.t = t
