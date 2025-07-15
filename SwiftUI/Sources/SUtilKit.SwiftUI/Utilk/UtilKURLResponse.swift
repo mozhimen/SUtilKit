@@ -9,10 +9,10 @@ import Foundation
 public func uRLResponse2str(uRLResponse:URLResponse?,data:Data?,error:Error?)->String{
     var descriptions = [] as [String]
     
-    descriptions.append("Response:")
+    descriptions.append("Response----------<")
     
     if let description = uRLResponse?.description {
-        descriptions.append(description)
+        descriptions.append("Description: \(description)")
     }
     
     if let error {
@@ -20,6 +20,8 @@ public func uRLResponse2str(uRLResponse:URLResponse?,data:Data?,error:Error?)->S
     }else{
         descriptions.append("Body: \(String.init(data: data ?? Data(), encoding: .utf8) ?? "")")
     }
+    
+    descriptions.append("Response----------<")
     
     return descriptions.joined(separator: "\n")
 }

@@ -10,7 +10,7 @@ public extension URLRequest {
     func uRLRequest2str()-> String {
         var descriptions = [] as [String]
 
-        descriptions.append("Request:")
+        descriptions.append("Request---------->")
 
         if let httpMethod {
             descriptions.append("Method: \(httpMethod)")
@@ -28,6 +28,8 @@ public extension URLRequest {
             descriptions.append("Body: \(bodyDescription)")
         }
 
+        descriptions.append("Request---------->")
+        
         return descriptions.joined(separator: "\n")
     }
 }
