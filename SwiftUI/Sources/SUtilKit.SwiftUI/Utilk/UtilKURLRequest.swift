@@ -8,23 +8,29 @@ import Foundation
 
 public extension URLRequest {
     func uRLRequest2str()-> String {
+        return UtilKURLRequest.uRLRequest2str(uRLRequest: self)
+    }
+}
+
+public final class UtilKURLRequest {
+    public static func uRLRequest2str(uRLRequest: URLRequest)-> String {
         var descriptions = [] as [String]
 
         descriptions.append("Request---------->")
 
-        if let httpMethod {
+        if let httpMethod = uRLRequest.httpMethod {
             descriptions.append("Method: \(httpMethod)")
         }
 
-        if let url {
+        if let url = uRLRequest.url {
             descriptions.append("URL: \(url)")
         }
 
-        if let allHTTPHeaderFields, !allHTTPHeaderFields.isEmpty {
+        if let allHTTPHeaderFields = uRLRequest.allHTTPHeaderFields, !allHTTPHeaderFields.isEmpty {
             descriptions.append("Headers: \(allHTTPHeaderFields)")
         }
 
-        if let httpBody, let bodyDescription = String(data: httpBody, encoding: .utf8) {
+        if let httpBody = uRLRequest.httpBody, let bodyDescription = String(data: httpBody, encoding: .utf8) {
             descriptions.append("Body: \(bodyDescription)")
         }
 

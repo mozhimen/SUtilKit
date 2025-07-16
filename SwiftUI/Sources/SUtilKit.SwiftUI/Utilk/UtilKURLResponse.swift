@@ -6,22 +6,31 @@
 //
 import Foundation
 
-public func uRLResponse2str(uRLResponse:URLResponse?,data:Data?,error:Error?)->String{
-    var descriptions = [] as [String]
-    
-    descriptions.append("Response----------<")
-    
-    if let description = uRLResponse?.description {
-        descriptions.append("Description: \(description)")
+public extension URLResponse {
+    func uRLResponse2str(data:Data?,error:Error?)->String{
+        return UtilKURLResponse.uRLResponse2str(uRLResponse: self, data: data, error: error)
     }
-    
-    if let error {
-        descriptions.append("Error: \(error.localizedDescription)")
-    }else{
-        descriptions.append("Body: \(String.init(data: data ?? Data(), encoding: .utf8) ?? "")")
-    }
-    
-    descriptions.append("Response----------<")
-    
-    return descriptions.joined(separator: "\n")
 }
+
+public final class UtilKURLResponse {
+    public static func uRLResponse2str(uRLResponse:URLResponse?,data:Data?,error:Error?)->String{
+        var descriptions = [] as [String]
+        
+        descriptions.append("Response----------<")
+        
+        if let description = uRLResponse?.description {
+            descriptions.append("Description: \(description)")
+        }
+        
+        if let error {
+            descriptions.append("Error: \(error.localizedDescription)")
+        }else{
+            descriptions.append("Body: \(String.init(data: data ?? Data(), encoding: .utf8) ?? "")")
+        }
+        
+        descriptions.append("Response----------<")
+        
+        return descriptions.joined(separator: "\n")
+    }
+}
+

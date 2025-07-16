@@ -11,8 +11,18 @@ import Foundation
 public extension DispatchTimeInterval {
     /// Convert to Double
     /// - Returns: Converted value
-    func toDouble() -> Double? {
-        switch self {
+    func dispatchTimeInterval2double() -> Double? {
+        return UtilKDispatchTimeInterval.dispatchTimeInterval2double(dispatchTimeInterval: self)
+    }
+    
+    func toDispatchTimeInterval() -> DispatchTimeInterval {
+        return UtilKDispatchTimeInterval.dispatchTimeInterval2dispatchTimeInterval(dispatchTimeInterval: self)
+    }
+}
+
+public final class UtilKDispatchTimeInterval{
+    public static func dispatchTimeInterval2double(dispatchTimeInterval:DispatchTimeInterval)-> Double? {
+        switch dispatchTimeInterval {
         case .seconds(let value):
             return Double(value)
         case .milliseconds(let value):
@@ -28,8 +38,8 @@ public extension DispatchTimeInterval {
         }
     }
     
-    func toDispatchTimeInterval() -> DispatchTimeInterval {
-        switch self {
+    public static func dispatchTimeInterval2dispatchTimeInterval(dispatchTimeInterval:DispatchTimeInterval) -> DispatchTimeInterval {
+        switch dispatchTimeInterval {
         case .seconds(let value):
             return .seconds(value)
         case .milliseconds(let value):
