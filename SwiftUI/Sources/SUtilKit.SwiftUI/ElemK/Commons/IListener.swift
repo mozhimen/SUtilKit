@@ -6,4 +6,6 @@
 //
 public typealias I_AListener<A> = () -> A
 public typealias IA_BListener<A,B> = (A) -> B
+public typealias IAB_Listener<A,B> = (A,B) -> Void
 public typealias IAB_CListener<A,B,C> = (A,B) -> C
+public typealias IABC_DListener<A,B,C,D> = (A,B,C) -> D
