@@ -7,7 +7,7 @@
 import SwiftUI
 import Combine
 open class BaseViewModel:ObservableObject{
-    var viewModelScope = Set<AnyCancellable>()
+    open var viewModelScope = Set<AnyCancellable>()
     
     public init(){
         
