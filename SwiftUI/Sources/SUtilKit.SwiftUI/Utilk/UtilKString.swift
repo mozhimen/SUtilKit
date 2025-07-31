@@ -6,6 +6,10 @@
 //
 
 public extension String{
+    func isNotEmpty()->Bool{
+        return UtilKString.isNotEmpty(self)
+    }
+    //===========================================================>
     
     func substring_sta_separator() -> String {
         return UtilKString.substring_sta_separator(self)
@@ -36,9 +40,21 @@ public extension String{
     func substring(range: Range<Int>) -> String {
         return UtilKString.substring(self, range: range)
     }
+    
+    //===========================================================>
+    
+    func hideAll()->String{
+        return UtilKString.hideAll(self)
+    }
 }
 
 public final class UtilKString{
+    public static func isNotEmpty(_ str:String)->Bool{
+        return !str.isEmpty
+    }
+    
+    //===========================================================>
+    
     public static func substring_sta_separator(_ str: String) -> String {
         return substring_sta(str, prefix: "/")
     }
@@ -96,5 +112,19 @@ public final class UtilKString{
         let start = str.index(str.startIndex, offsetBy: range.lowerBound)
         let end = str.index(str.startIndex, offsetBy: range.upperBound)
         return String(str[start..<end])
+    }
+    
+    /**
+     * 密码脱敏（将所有字符替换为指定字符）
+     * - Parameters:
+     *   - str: 原始字符串
+     *   - char: 替换字符，默认为'*'
+     * - Returns: 脱敏后的字符串
+     */
+    public static func hideAll(_ str: String, char: Character = "*") -> String {
+        guard !str.isEmpty else {
+            return ""
+        }
+        return String(repeating: String(char), count: str.count)
     }
 }
