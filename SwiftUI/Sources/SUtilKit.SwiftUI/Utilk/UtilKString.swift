@@ -4,8 +4,13 @@
 //
 //  Created by Taiyou on 2025/7/16.
 //
+import Foundation
 
 public extension String{
+    func match_digits()->Bool{
+        return UtilKString.match_digits(self)
+    }
+    
     func isNotEmpty()->Bool{
         return UtilKString.isNotEmpty(self)
     }
@@ -49,6 +54,10 @@ public extension String{
 }
 
 public final class UtilKString{
+    public static func match_digits(_ str:String)->Bool{
+        return str.range(of: "^[0-9]+$",options: .regularExpression) != nil
+    }
+    
     public static func isNotEmpty(_ str:String)->Bool{
         return !str.isEmpty
     }
@@ -113,6 +122,8 @@ public final class UtilKString{
         let end = str.index(str.startIndex, offsetBy: range.upperBound)
         return String(str[start..<end])
     }
+    
+    //===========================================================>
     
     /**
      * 密码脱敏（将所有字符替换为指定字符）

@@ -18,4 +18,8 @@ public final class UtilKTimeInterval{
     public static func get(_ v: Int)->TimeInterval{
         return TimeInterval.init(v)
     }
+    
+    public static func get(integerLiteral:Int64)->TimeInterval{
+        return TimeInterval.init(integerLiteral:integerLiteral )
+    }
 }
