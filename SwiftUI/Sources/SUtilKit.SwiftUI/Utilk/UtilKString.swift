@@ -16,6 +16,12 @@ public extension String{
     }
     //===========================================================>
     
+    func replace(old:String,new:String)->String{
+        return UtilKString.replace(str: self, old: old, new: new)
+    }
+    
+    //===========================================================>
+    
     func substring_sta_separator() -> String {
         return UtilKString.substring_sta_separator(self)
     }
@@ -60,6 +66,12 @@ public final class UtilKString{
     
     public static func isNotEmpty(_ str:String)->Bool{
         return !str.isEmpty
+    }
+    
+    //===========================================================>
+    
+    public static func replace(str:String,old:String,new:String) -> String{
+        return str.replacingOccurrences(of: old, with: new)
     }
     
     //===========================================================>

@@ -5,6 +5,7 @@
 //  Created by Taiyou on 2025/7/9.
 //
 public typealias I_Listener = () -> Void
+public typealias IA_Listener<A> = (A) -> Void
 public typealias I_AListener<A> = () -> A
 public typealias IA_BListener<A,B> = (A) -> B
 public typealias IAB_Listener<A,B> = (A,B) -> Void
