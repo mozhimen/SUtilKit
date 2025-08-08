@@ -6,7 +6,7 @@
 //
 
 public extension Double{
-    public func double2string()->String {
+    func double2string()->String {
         return UtilKDouble.double2stirng(self)
     }
 }

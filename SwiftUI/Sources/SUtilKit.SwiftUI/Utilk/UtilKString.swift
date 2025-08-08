@@ -14,6 +14,13 @@ public extension String{
     func isNotEmpty()->Bool{
         return UtilKString.isNotEmpty(self)
     }
+    
+    //===========================================================>
+    
+    func join_sta_0()->String{
+        return UtilKString.join_sta_0(self)
+    }
+    
     //===========================================================>
     
     func replace(old:String,new:String)->String{
@@ -66,6 +73,12 @@ public final class UtilKString{
     
     public static func isNotEmpty(_ str:String)->Bool{
         return !str.isEmpty
+    }
+    
+    //===========================================================>
+    
+    static func join_sta_0(_ str: String) -> String {
+        str.hasPrefix(".") ? "0\(str)" : str
     }
     
     //===========================================================>
