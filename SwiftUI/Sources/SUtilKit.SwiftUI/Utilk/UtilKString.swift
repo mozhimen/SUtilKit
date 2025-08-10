@@ -23,8 +23,8 @@ public extension String{
     
     //===========================================================>
     
-    func replace(old:String,new:String)->String{
-        return UtilKString.replace(str: self, old: old, new: new)
+    func replace(_ old:String,_ new:String)->String{
+        return UtilKString.replace( self,  old,  new)
     }
     
     //===========================================================>
@@ -83,7 +83,7 @@ public final class UtilKString{
     
     //===========================================================>
     
-    public static func replace(str:String,old:String,new:String) -> String{
+    public static func replace(_ str:String,_ old:String,_ new:String) -> String{
         return str.replacingOccurrences(of: old, with: new)
     }
     
