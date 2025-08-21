@@ -15,6 +15,10 @@ public extension String{
         return UtilKString.isNotEmpty(self)
     }
     
+    func contains(_ other:String, ignoreCase:Bool)->Bool{
+        return UtilKString.contains(self, other, ignoreCase: ignoreCase)
+    }
+    
     //===========================================================>
     
     func join_sta_0()->String{
@@ -25,6 +29,10 @@ public extension String{
     
     func replace(_ old:String,_ new:String)->String{
         return UtilKString.replace( self,  old,  new)
+    }
+    
+    func replace(_ old:String,_ new:String,ignoreCase:Bool)->String{
+        return UtilKString.replace(self, old, new, ignoreCase: ignoreCase)
     }
     
     //===========================================================>
@@ -75,6 +83,14 @@ public final class UtilKString{
         return !str.isEmpty
     }
     
+    public static func contains(_ str:String,_ other:String, ignoreCase:Bool)->Bool{
+        if ignoreCase {
+            return str.range(of: other,options: .caseInsensitive) != nil
+        }else{
+            return str.contains(other)
+        }
+    }
+    
     //===========================================================>
     
     static func join_sta_0(_ str: String) -> String {
@@ -83,8 +99,17 @@ public final class UtilKString{
     
     //===========================================================>
     
-    public static func replace(_ str:String,_ old:String,_ new:String) -> String{
+    public static func replace(_ str: String, _ old: String, _ new: String) -> String{
         return str.replacingOccurrences(of: old, with: new)
+    }
+    
+    public static func replace(_ str: String, _ old: String, _ new: String, ignoreCase: Bool) -> String {
+        var options: String.CompareOptions = []
+        if ignoreCase {
+            options.insert(.caseInsensitive)
+        }
+        
+        return str.replacingOccurrences(of: old, with: new, options: options)
     }
     
     //===========================================================>
