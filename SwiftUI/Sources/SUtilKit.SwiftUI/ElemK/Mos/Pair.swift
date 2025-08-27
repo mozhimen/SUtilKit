@@ -5,7 +5,7 @@
 //  Created by Taiyou on 2025/7/28.
 //
 
-public struct Pair<T1, T2> {
+public struct Pair<T1, T2>:@unchecked Sendable {
     public var first: T1
     public var second: T2
     

@@ -6,9 +6,12 @@
 //
 import SwiftUI
 import Combine
-open class BaseViewModel:ObservableObject{
+open class BaseViewModel:ObservableObject,@unchecked Sendable{
+
+    @MainActor
     open var viewModelScope = Set<AnyCancellable>()
     
+    @MainActor
     public init(){
         
     }
