@@ -21,6 +21,8 @@ public extension Published.Publisher {
     }
 }
 
+extension Published.Publisher: @unchecked Sendable where Output: Sendable { }
+
 public final class UtilKPublished{
     
 }
