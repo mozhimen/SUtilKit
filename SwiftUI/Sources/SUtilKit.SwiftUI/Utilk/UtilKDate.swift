@@ -21,6 +21,10 @@ public extension Date{
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSince(rhs)
     }
+    
+    func date2doubleDate()->Double{
+        return UtilKDate.date2doubleDate(date: self)
+    }
 }
 
 public extension Int64{
@@ -47,6 +51,12 @@ public extension String{
     }
 }
 
+public extension Double{
+    func doubleDate2date()->Date{
+        return UtilKDate.doubleDate2date(doubleDate: self)
+    }
+}
+
 //
 
 public final class UtilKDate {
@@ -55,6 +65,14 @@ public final class UtilKDate {
     }
     
     //===========================================================>
+    
+    public static func doubleDate2date(doubleDate:Double)->Date{
+        return Date.init(timeIntervalSince1970: doubleDate)
+    }
+    
+    public static func date2doubleDate(date:Date)->Double{
+        return date.timeIntervalSince1970
+    }
     
     //数字13位时间戳转date
     public static func int64Time2date(int64Time:Int64)->Date?{
