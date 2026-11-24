@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (JSON)
+@interface NSArray (JSONConversion)
 
 - (NSData *)toJSONDataWithError:(NSError **)error;
 - (NSString *)toJSONStringWithError:(NSError **)error;

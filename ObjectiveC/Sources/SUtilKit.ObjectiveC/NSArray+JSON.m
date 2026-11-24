@@ -6,7 +6,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@implementation NSArray (JSON)
+@implementation NSArray (JSONConversion)
 
 // IDA: 0x474C
 - (NSData *)toJSONDataWithError:(NSError **)error {
